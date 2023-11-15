@@ -13,25 +13,21 @@ document.querySelector("#close").addEventListener("click", function(){
 });
 
 // ----------upload image------
-const droparea=document.getElementById("drop-area");
-const inputfile=document.getElementById("input-file");
-const imageview=document.getElementById("img-view");
+function previewImage() {
+    var input = document.getElementById('imageInput');
+    var preview = document.getElementById('previewImage');
 
-inputfile.addEventListener("change",uploadimage);
+    var file = input.files[0];
 
-function uploadimage(){
-    
-    let imglink=URL.createObjectURL(inputfile.files[0]);
-    imageview.style.backgroundImage=`url(${imglink})`;
-    imageview.textContent="";
-    imageview.style.border=0;
+    if (file) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            preview.src = e.target.result;
+            imageview.textContent="";
+            imageview.style.border=0;
+        };
+        
+        reader.readAsDataURL(file);
 }
-
-droparea.addEventListener("dragover",function(e){
-    e.preventDefault();
-});
-droparea.addEventListener("drop",function(e){
-    e.preventDefault();
-    inputfile.files=e.dataTransfer.files;
-    uploadimage();
-});
+}

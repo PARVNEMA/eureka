@@ -663,18 +663,16 @@
     </div>
   </section> -->
 
-  <div class="hero">
-    <label for="input-file" id="drop-area">
-        <input type="file" accept="image/*"
-        id="input-file" hidden>
-        <div id="img-view">
-            <img src="508-icon.png" alt="">
-            <p>Drag & Drop or Click<br> here to Upload Image </p>
-            <span>Upload any images from desktop</span>
-        </div>
-    </label>
-</div>
-
+<h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Upload E-waste Image </h1> 
+  <section id="upload">
+   <div id="drop-area">
+          <input type="file" accept="image/*" id="imageInput" onchange="previewImage()">
+            <div id="img-view" >
+              <img src="" alt="Preview" id="previewImage" style="max-width:100%; height:100%;">
+            </div>
+          </div>
+  
+  </section>
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-wrap w-full mb-20">
